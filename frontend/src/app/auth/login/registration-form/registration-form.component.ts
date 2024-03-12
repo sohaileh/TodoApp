@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UsersServiceService } from '../../../Services/users-service.service';
 
 
 @Component({
@@ -10,16 +11,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class RegistrationFormComponent implements OnInit {
   snakeBar: MatSnackBar
-  constructor(snakeBarRef: MatSnackBar) {
+  constructor(snakeBarRef: MatSnackBar, private userService: UsersServiceService) {
     this.snakeBar = snakeBarRef
   }
   userRegDetails: FormGroup;
   onFormSubmit() {
-    console.log(this.userRegDetails)
+    console.log(this.userRegDetails.value)
     if (this.userRegDetails.invalid) {
       this.snakeBar.open("Please fill all the input fields with required details", "Dismiss")
     }
-    return this.snakeBar.open("Registered successfully", "okay")
+    return this.userService.postUser(this.userRegDetails.value)
   }
   ngOnInit(): void {
     this.userRegDetails = new FormGroup({

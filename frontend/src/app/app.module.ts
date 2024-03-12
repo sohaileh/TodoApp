@@ -13,7 +13,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './auth/login/Login/login.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -28,6 +29,7 @@ import {MatCardModule} from '@angular/material/card';
     AppRoutingModule,
     ReactiveFormsModule,
     MatInputModule,
+    HttpClientModule,
     MatFormFieldModule,
     MatButtonModule,
     MatGridListModule,
