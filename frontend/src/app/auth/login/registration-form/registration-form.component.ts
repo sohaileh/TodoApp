@@ -18,9 +18,12 @@ export class RegistrationFormComponent implements OnInit {
   onFormSubmit() {
     console.log(this.userRegDetails.value)
     if (this.userRegDetails.invalid) {
-      this.snakeBar.open("Please fill all the input fields with required details", "Dismiss")
+      return this.snakeBar.open("Please fill all the input fields with required details", "Dismiss")
+    } else {
+      this.userService.postUser(this.userRegDetails.value);
+      this.userRegDetails.reset()
+      return this.snakeBar.open("User Registered Successfully", "Okay")
     }
-    return this.userService.postUser(this.userRegDetails.value)
   }
   ngOnInit(): void {
     this.userRegDetails = new FormGroup({
