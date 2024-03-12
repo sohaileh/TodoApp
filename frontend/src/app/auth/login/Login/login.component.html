@@ -1,0 +1,43 @@
+<div class="outer-container">
+    <div class="center-content">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title class="Title">Login</mat-card-title>
+            <mat-card-subtitle>You can Login Here</mat-card-subtitle>
+          </mat-card-header>
+      
+          <mat-card-content>
+            <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+              <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" formControlName="email">
+                <mat-icon matSuffix color="primary">mail</mat-icon>
+                <div>
+                  <mat-error *ngIf="LoginForm.get('email')?.touched && LoginForm.get('email')?.hasError('required')">*Email
+                    should not be empty</mat-error>
+                  <mat-error *ngIf="LoginForm.get('email')?.touched && LoginForm.get('email')?.hasError('email')">*Email
+                    should be valid</mat-error>
+                </div>
+              </mat-form-field>
+      
+              <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Password" formControlName="password">
+                <mat-icon matSuffix color="primary">lock</mat-icon>
+                <div
+                  *ngIf="LoginForm.get('password')?.invalid && (LoginForm.get('password')?.dirty || LoginForm.get('password')?.touched)">
+                  <mat-error *ngIf="LoginForm.get('password')?.hasError('required')">Password is required</mat-error>
+                  <mat-error *ngIf="LoginForm.get('password')?.hasError('minlength')">Password must be at least 4
+                    characters</mat-error>
+                  <mat-error *ngIf="LoginForm.get('password')?.hasError('maxlength')">Password cannot exceed 10
+                    characters</mat-error>
+                </div>
+              </mat-form-field>
+              <button class="mat-button" mat-button color="primary" type="submit">Login</button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+</div>
+
