@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// utility classes
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.wrapper{
+  padding: 1em;
+}
+.common-container{
+  padding: 1em;
+}
+small{
+  font-weight: bold;
+  color: red;
+}
+// grid
+.grid{
+  display: grid;
+}
+.grid-2-col{
+  grid-template-columns: repeat(2,1fr);
+}
+.grid-3-col{
+  grid-template-columns: repeat(3,1fr);
+}
+.grid-1em-gap{
+  gap: 1em;
+}
+.grid-align-items-start{
+  align-items: start;
+}
+.grid-complete-columns{
+  grid-column: 1/-1;
+}
+.grid-justify-self-start{
+  justify-self: start;
+}
+.grid-justify-self-center{
+  justify-self: center;
+}
+
+// flex
+.flex{
+  display: flex;
+}
+.flex-justify-content-center{
+  justify-content: center;
+}
+.flex-align-items-center{
+  align-items: center;
+}
