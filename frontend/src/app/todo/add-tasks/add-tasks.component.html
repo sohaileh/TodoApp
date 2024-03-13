@@ -1,0 +1,8 @@
+<div class="outer">
+  <form [formGroup]="todoForm" (ngSubmit)="onAddTask()" class="todo-container">
+    <mat-form-field class="taskInputField common" appearance="outline">
+      <input type="text" matNativeControl placeholder="Add Task" formControlName="content">
+    </mat-form-field>
+    <button mat-flat-button color="primary" class="btn common">Add Task</button>
+  </form>
+</div>

@@ -15,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './auth/login/Login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { AddTasksComponent } from './todo/add-tasks/add-tasks.component';
+import { DisplayTaskComponent } from './todo/display-task/display-task.component';
 
 
 
@@ -23,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     RegistrationFormComponent,
     LoginComponent,
+    AddTasksComponent,
+    DisplayTaskComponent,
   ],
   imports: [
     BrowserModule,
