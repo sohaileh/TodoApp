@@ -21,14 +21,29 @@ Content-Type: application/json
 ###sign out user
 POST http://localhost:3000/auth/signout
 
-
-###add task
-POST http://localhost:3000/task/addtask
-Content-Type: application/json
+### add task 
+POST http://localhost:3000/task/addtask/65e9a8b3945f2342fe77f47d
+Content-Type : application/json
 
 {
-  "content":"exercise"
+   "content": "This is a test task."
 }
 
-###get all tasks of a specific user
-GET http://localhost:3000/task/gettasks
+### get all tasks for a specific user
+GET http://localhost:3000/task/gettasks/65e9a8b3945f2342fe77f47d
+
+
+
+
+
+
+# ###add task
+# POST http://localhost:3000/task/addtask
+# Content-Type: application/json
+
+# {
+#   "content":"exercise"
+# }
+
+# ###get all tasks of a specific user
+# GET http://localhost:3000/task/gettasks

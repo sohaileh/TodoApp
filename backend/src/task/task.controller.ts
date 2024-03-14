@@ -10,21 +10,33 @@ import { User } from 'src/auth/schemas/user.schema';
 export class TaskController {
   constructor(private taskService: TaskService, private readonly authService: AuthService) { }
 
-
-  @UseGuards(AuthGuard)
-  @Post('/addtask')
-  async createTask(@Body() body: CreateTaskDto,
-    @CurrentUser() user) {
-
-    return this.taskService.createTask(body, user._id)
+  @Post('/addtask/:id')
+  async createTask(@Body() body: CreateTaskDto, @Param('id') id: string) {
+    return this.taskService.createTask(body, id)
 
   }
 
 
-  @UseGuards(AuthGuard)
-  @Get('/gettasks')
-  async findAllTasks(@CurrentUser() user: any) {
-    return this.taskService.findAllTasks(user._id)
+  @Get('/gettasks/:id')
+  async findAllTasks(@Param('id') id: string) {
+    return this.taskService.findAllTasks(id)
   }
+
+
+  // @UseGuards(AuthGuard)
+  // @Post('/addtask')
+  // async createTask(@Body() body: CreateTaskDto,
+  //   @CurrentUser() user) {
+
+  //   return this.taskService.createTask(body, user._id)
+
+  // }
+
+
+  // @UseGuards(AuthGuard)
+  // @Get('/gettasks')
+  // async findAllTasks(@CurrentUser() user: any) {
+  //   return this.taskService.findAllTasks(user._id)
+  // }
 
 }
