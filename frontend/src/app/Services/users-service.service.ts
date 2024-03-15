@@ -13,7 +13,7 @@ export class UsersServiceService {
 
   //register
   postUser(data: PostUser) {
-    this.http.post('http://localhost:3000/auth/signup', data)
+    this.http.post('http://localhost:3000/auth/signup', data).subscribe(res => console.log("registered"))
   }
   // add Task
   addTask(data: AddTask) {
