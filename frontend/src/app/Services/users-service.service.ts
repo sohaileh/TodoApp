@@ -22,6 +22,7 @@ export class UsersServiceService {
   postUser(data: PostUser) {
     this.http.post('http://localhost:3000/auth/signup', data).subscribe();
   }
+ 
   // add Task
   addTask(data: AddTask) {
     this.http.post(`http://localhost:3000/task/addtask/${this.Id}`, data).subscribe(res => {
