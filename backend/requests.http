@@ -26,11 +26,15 @@ POST http://localhost:3000/task/addtask/65e9a8b3945f2342fe77f47d
 Content-Type : application/json
 
 {
-   "content": "This is a test task."
+   "content": "Delete task."
 }
 
 ### get all tasks for a specific user
 GET http://localhost:3000/task/gettasks/65e9a8b3945f2342fe77f47d
+
+
+### Delete a task 
+DELETE http://localhost:3000/task/deletetask/65f3a89357a5eb066841081f
 
 
 

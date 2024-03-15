@@ -29,4 +29,20 @@ export class TaskService {
     }
     return data;
   }
+
+
+  async deleteTask(id: string) {
+    const isValidId = mongoose.isValidObjectId(id)
+    if (!isValidId) {
+      throw new BadRequestException("invalid id");
+    }
+    const data = await this.taskModel.findById(id);
+    if (!data) {
+      throw new NotFoundException('task not found')
+    }
+    else {
+      return await this.taskModel.deleteOne({ _id: id })
+    }
+  }
+
 }
