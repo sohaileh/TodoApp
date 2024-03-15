@@ -17,7 +17,7 @@ export class AddTasksComponent implements OnInit {
   }
   onAddTask() {
     if (this.todoForm.valid) {
-      this.userService.addTask(this.todoForm.value)
+      this.userService.addTask(this.todoForm.value);
     }
   }
 }

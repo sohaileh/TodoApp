@@ -12,11 +12,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
-import { LoginComponent } from './auth/login/Login/login.component';
 import { MatCardModule } from '@angular/material/card';
+import { LoginComponent } from './auth/login/Login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddTasksComponent } from './todo/add-tasks/add-tasks.component';
 import { DisplayTaskComponent } from './todo/display-task/display-task.component';
+import { Routes } from '@angular/router';
+
+const routes: Routes = [
+  {}
+]
 
 
 
@@ -39,7 +44,7 @@ import { DisplayTaskComponent } from './todo/display-task/display-task.component
     MatGridListModule,
     MatSnackBarModule,
     MatIconModule,
-    MatCardModule,
+    MatCardModule
   ],
   providers: [
     provideAnimationsAsync()

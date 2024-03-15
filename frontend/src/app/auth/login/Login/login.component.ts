@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
     if (this.LoginForm.valid) {
       // Handle form submission logic here
       console.log(this.LoginForm.value);
+      this.userService.logIn(this.LoginForm.value)
     } else {
       // Mark form controls as touched to trigger validation messages
       this.LoginForm.markAllAsTouched();
