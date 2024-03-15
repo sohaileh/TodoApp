@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     if(this.LoginForm.valid){
       this.userService.logIn(this.LoginForm.value);
       this.LoginForm.reset();
-      return this.snakeBar.open("Login Successfully", "Okay") 
+      return this.snakeBar.open("Login Successfully", "Okay") ;
     }
     else{
       return this.snakeBar.open("Please fill all the input fields with required details", "Dismiss")

@@ -9,11 +9,12 @@ import { UsersServiceService } from '../../Services/users-service.service';
 })
 export class DisplayTaskComponent {
   userService: UsersServiceService = inject(UsersServiceService)
-  userTaskDb: any
+  userTaskDb: any;
+  Id:string;
   ngOnInit() {
-    this.userService.getAllTasks().subscribe(res => {
-      this.userTaskDb = res;
-      console.log(res)
-    })
+    // this.userService.getAllTasks().subscribe(res => {
+    //   this.userTaskDb = res;
+    //   console.log(res);
+    // })
   }
 }
