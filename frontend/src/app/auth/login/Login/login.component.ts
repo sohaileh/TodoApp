@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UsersServiceService } from '../../../Services/users-service.service';
 
 @Component({
@@ -9,7 +10,15 @@ import { UsersServiceService } from '../../../Services/users-service.service';
 })
 export class LoginComponent implements OnInit {
   LoginForm!: FormGroup;
-  constructor(private userService: UsersServiceService) { }
+  snakeBar: MatSnackBar;
+
+  constructor(
+    private userService: UsersServiceService,
+    snakeBarRef: MatSnackBar,
+    ) 
+    {
+      this.snakeBar = snakeBarRef;
+     }
   ngOnInit(): void {
     this.LoginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -18,13 +27,13 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.LoginForm.valid) {
-      // Handle form submission logic here
-      console.log(this.LoginForm.value);
-      this.userService.logIn(this.LoginForm.value)
-    } else {
-      // Mark form controls as touched to trigger validation messages
-      this.LoginForm.markAllAsTouched();
+    if(this.LoginForm.valid){
+      this.userService.logIn(this.LoginForm.value);
+      this.LoginForm.reset();
+      return this.snakeBar.open("Login Successfully", "Okay") 
+    }
+    else{
+      return this.snakeBar.open("Please fill all the input fields with required details", "Dismiss")
     }
   }
 }

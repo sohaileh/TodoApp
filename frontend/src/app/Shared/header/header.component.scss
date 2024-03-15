@@ -1,0 +1,37 @@
+
+mat-toolbar{
+    justify-content: space-between;
+    background: rgba(75, 0, 130, 0.9),
+    
+}
+.container{
+    align-items: center;
+    display: flex;
+}
+
+#custom-button{
+    background-color: white;
+    font-weight: bold;
+}
+
+#profile{
+    background-color: white;
+    border-radius: 50%;
+}
+
+.heading{
+    color: white;
+}
+
+.button-container{
+    display: flex;
+    gap: 1rem;
+}
+
+.mat-list{
+    color: white;
+}
+
+.disabled{
+
+}

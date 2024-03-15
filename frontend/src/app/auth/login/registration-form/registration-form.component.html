@@ -1,6 +1,6 @@
 <div class="common-container reg-form-parent flex flex-justify-content-center flex-align-items-center">
   <form class="wrapper reg-form grid grid-2-col grid-1em-gap" [formGroup]="userRegDetails" (ngSubmit)="onFormSubmit()">
-    <h2 class="grid-complete-columns reg-heading">Registration Form</h2>
+    <h2 class="grid-complete-columns reg-heading">Register</h2>
     <mat-form-field floatLabel="auto" appearance="fill" color="accent">
       <mat-label>Name</mat-label>
       <input type="text" matInput placeholder="Name" formControlName="name">
@@ -43,6 +43,8 @@
 
       <mat-icon matSuffix color="primary">mail</mat-icon>
     </mat-form-field>
-    <button mat-raised-button class="grid-complete-columns grid-justify-self-center" color="primary">Submit</button>
+    <button mat-raised-button class="grid-complete-columns grid-justify-self-center" color="primary" >Submit</button>
+    <div class="text-below-container">Already have an account 
+      <a class="grid-complete-columns grid-justify-self-center " [routerLink]="'/login'" >Sign In</a> </div>
   </form>
 </div>

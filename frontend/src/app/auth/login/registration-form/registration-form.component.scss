@@ -1,15 +1,15 @@
 .reg-form-parent{
-  background:linear-gradient(rgb(246, 140, 158),indigo);
+  background:indigo;
   height: 100vh;
 }
 .reg-form{
   border-radius: 10px;
-  border: 1px solid black;
   background-color: #fff;
   padding: 2em;
 }
 .reg-heading{
   text-align: center;
+  font-size: 30px;
 }
 mat-hint{
   font-weight: bold;

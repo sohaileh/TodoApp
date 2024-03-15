@@ -17,12 +17,10 @@ import { LoginComponent } from './auth/login/Login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddTasksComponent } from './todo/add-tasks/add-tasks.component';
 import { DisplayTaskComponent } from './todo/display-task/display-task.component';
-import { Routes } from '@angular/router';
-
-const routes: Routes = [
-  {}
-]
-
+import { HomeComponent } from './Shared/home/home.component';
+import { HeaderComponent } from './Shared/header/header.component';
+import { FooterComponent } from './Shared/footer/footer.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -32,6 +30,10 @@ const routes: Routes = [
     LoginComponent,
     AddTasksComponent,
     DisplayTaskComponent,
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ const routes: Routes = [
     MatGridListModule,
     MatSnackBarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule,
   ],
   providers: [
     provideAnimationsAsync()

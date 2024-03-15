@@ -11,13 +11,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // margin-top: 12rem;
-    // text-align: center;
   }
 
   .Title{
     font-size: 30px;
-    // text-align: center;
   }
 
   .example-form {
@@ -34,18 +31,17 @@
   .mat-button{
     margin-top: 10px;
     width: 100%;
-    // color:white;
     background-color: #3F51B5;
     height: 40px;
   }
 
-  input.ng-invalid.ng-touched{
-
-  }
-
   .outer-container{
     height:100vh;
-    background:linear-gradient(rgb(246, 140, 158),indigo);
+    background:indigo;
+  }
+
+  .text-below-container{
+    margin-top: 1rem;
   }
   
  
