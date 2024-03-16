@@ -1,5 +1,4 @@
-import { Component, inject, OnInit, DoCheck } from '@angular/core';
-import { DisplayUser } from '../../models/displayUser';
+import { Component, OnInit } from '@angular/core';
 import { UsersServiceService } from '../../Services/users-service.service';
 
 @Component({
@@ -8,13 +7,11 @@ import { UsersServiceService } from '../../Services/users-service.service';
   styleUrl: './display-task.component.scss'
 })
 export class DisplayTaskComponent {
-  userService: UsersServiceService = inject(UsersServiceService)
+  constructor(private userService: UsersServiceService) { }
   userTaskDb: any;
-  Id:string;
-  ngOnInit() {
-    // this.userService.getAllTasks().subscribe(res => {
-    //   this.userTaskDb = res;
-    //   console.log(res);
-    // })
+  ngOnInit(): void {
+    this.userService.getAllTasks().subscribe((res) => {
+      this.userTaskDb = res;
+    })
   }
 }

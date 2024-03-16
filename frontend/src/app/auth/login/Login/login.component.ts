@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Route, Router, Routes } from '@angular/router';
+import { AddTask } from '../../../models/addTask';
 import { UsersServiceService } from '../../../Services/users-service.service';
 
 @Component({
@@ -11,14 +13,15 @@ import { UsersServiceService } from '../../../Services/users-service.service';
 export class LoginComponent implements OnInit {
   LoginForm!: FormGroup;
   snakeBar: MatSnackBar;
+  userTaskDb: any;
 
   constructor(
     private userService: UsersServiceService,
-    snakeBarRef: MatSnackBar,
-    ) 
-    {
-      this.snakeBar = snakeBarRef;
-     }
+    private snakeBarRef: MatSnackBar,
+    private routes: Router
+  ) {
+    this.snakeBar = snakeBarRef;
+  }
   ngOnInit(): void {
     this.LoginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -27,12 +30,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    if(this.LoginForm.valid){
-      this.userService.logIn(this.LoginForm.value);
-      this.LoginForm.reset();
-      return this.snakeBar.open("Login Successfully", "Okay") ;
+    if (this.LoginForm.valid) {
+      this.userService.logIn(this.LoginForm.value).subscribe(() => {
+        this.LoginForm.reset();
+        this.routes.navigate(['addtask'])
+      })
+      return this.snakeBar.open("Login Successfully", "Okay");
     }
-    else{
+    else {
       return this.snakeBar.open("Please fill all the input fields with required details", "Dismiss")
     }
   }

@@ -20,6 +20,7 @@ export class RegistrationFormComponent implements OnInit {
     if (this.userRegDetails.invalid) {
       return this.snakeBar.open("Please fill all the input fields with required details", "Dismiss")
     } else {
+      console.log(this.userRegDetails.value)
       this.userService.postUser(this.userRegDetails.value);
       this.userRegDetails.reset()
       return this.snakeBar.open("User Registered Successfully", "Okay")
