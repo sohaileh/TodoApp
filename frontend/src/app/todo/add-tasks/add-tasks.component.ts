@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersServiceService } from '../../Services/users-service.service';
 
+
 @Component({
   selector: 'add-tasks',
   templateUrl: './add-tasks.component.html',
@@ -15,10 +16,14 @@ export class AddTasksComponent implements OnInit {
       content: new FormControl('', [Validators.required])
     })
   }
+
   onAddTask() {
     if (this.todoForm.valid) {
       this.userService.addTask(this.todoForm.value).subscribe(() => {
-        this.userService.getAllTasks().subscribe(res => console.log(res))
+        this.userService.getAllTasks().subscribe(res => {
+          this.userService.onAddTaskClicked(res)
+          this.todoForm.reset()
+        })
       })
     }
   }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Route, Router, Routes } from '@angular/router';
-import { AddTask } from '../../../models/addTask';
+import { Router } from '@angular/router';
 import { UsersServiceService } from '../../../Services/users-service.service';
 
 @Component({

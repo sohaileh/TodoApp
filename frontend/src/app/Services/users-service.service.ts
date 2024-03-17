@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PostUser } from '../models/postUser';
 import { AddTask } from '../models/addTask';
@@ -36,9 +36,14 @@ export class UsersServiceService {
   }
   //get all tasks
   getAllTasks() {
-    const getReq = this.http.get(`http://localhost:3000/task/gettasks/${this.Id}`)
-    getReq.subscribe()
-    return getReq
+    return this.http.get(`http://localhost:3000/task/gettasks/${this.Id}`)
+  }
+
+  //onAddTask
+  addTaskClicked: EventEmitter<any> = new EventEmitter<any>();
+
+  onAddTaskClicked(data: any) {
+    this.addTaskClicked.emit(data);
   }
 
 }

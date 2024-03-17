@@ -13,5 +13,9 @@ export class DisplayTaskComponent {
     this.userService.getAllTasks().subscribe((res) => {
       this.userTaskDb = res;
     })
+    this.userService.addTaskClicked.subscribe(data => {
+      this.userTaskDb = data
+    });
   }
+
 }
