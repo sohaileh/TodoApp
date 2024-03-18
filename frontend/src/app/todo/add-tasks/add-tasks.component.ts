@@ -10,21 +10,31 @@ import { UsersServiceService } from '../../Services/users-service.service';
 })
 export class AddTasksComponent implements OnInit {
   todoForm: FormGroup;
-  userService: UsersServiceService = inject(UsersServiceService)
+  userService: UsersServiceService = inject(UsersServiceService);
+  showDisplayTasks:boolean = true;
+
   ngOnInit(): void {
     this.todoForm = new FormGroup({
       content: new FormControl('', [Validators.required])
+    });
+    this.userService.editTaskClicked.subscribe((data:boolean)=>{
+      this.showDisplayTasks = data;
     })
   }
 
   onAddTask() {
-    if (this.todoForm.valid) {
+    if (this.todoForm.valid && this.showDisplayTasks) {
       this.userService.addTask(this.todoForm.value).subscribe(() => {
         this.userService.getAllTasks().subscribe(res => {
           this.userService.onAddTaskClicked(res)
-          this.todoForm.reset()
+       
         })
       })
     }
+    else{
+      this.todoForm.setValue(this.todoForm.value);
+    }
+        // this.todoForm.reset()
   }
+  
 }

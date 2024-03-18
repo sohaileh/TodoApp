@@ -3,7 +3,7 @@
     <mat-form-field class="taskInputField common" appearance="outline">
       <input type="text" matNativeControl placeholder="Add Task" formControlName="content">
     </mat-form-field>
-    <button mat-flat-button color="primary" class="btn common">Add Task</button>
+    <button mat-flat-button color="primary" class="btn common"  >{{showDisplayTasks?'Add Task':'Update Task'}}</button>
   </form>
 </div>
-<app-display-task></app-display-task>
+<app-display-task *ngIf="showDisplayTasks"></app-display-task>
