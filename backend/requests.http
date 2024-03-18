@@ -3,8 +3,8 @@ POST http://localhost:3000/auth/signup
 Content-Type:  application/json
 
 {
-  "name":"kamran",
-  "email": "kamran@example.com",
+  "name":"husbanraina",
+  "email": "husban121@example.com",
   "password":"123456"
 }
 
@@ -22,19 +22,27 @@ Content-Type: application/json
 POST http://localhost:3000/auth/signout
 
 ### add task 
-POST http://localhost:3000/task/addtask/65e9a8b3945f2342fe77f47d
+POST http://localhost:3000/task/addtask/65f7cbfa611b73cb9311d07c
 Content-Type : application/json
 
 {
-   "content": "Delete task."
+   "content": "edit task."
 }
 
 ### get all tasks for a specific user
-GET http://localhost:3000/task/gettasks/65e9a8b3945f2342fe77f47d
+GET http://localhost:3000/task/gettasks/65f7cbfa611b73cb9311d07c
 
 
 ### Delete a task 
-DELETE http://localhost:3000/task/deletetask/65f3a89357a5eb066841081f
+DELETE http://localhost:3000/task/deletetask/65f7cc14611b73cb9311d083
+
+###update a task
+PATCH http://localhost:3000/task/updatetask/65f7cc1c611b73cb9311d087
+Content-Type: application/json
+
+{
+  "content": "task edited"
+}
 
 
 

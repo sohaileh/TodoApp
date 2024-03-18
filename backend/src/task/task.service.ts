@@ -45,4 +45,16 @@ export class TaskService {
     }
   }
 
+  async updateTask(task: Task, taskId: string) {
+    const isValidId = mongoose.isValidObjectId(taskId)
+    if (!isValidId) {
+      throw new BadRequestException('please enter valid id')
+    }
+    const existingTask = await this.taskModel.findByIdAndUpdate(taskId, task);
+    if (!existingTask) {
+      throw new NotFoundException(`Task #${taskId} not found`);
+    }
+    return existingTask;
+  }
+
 }
