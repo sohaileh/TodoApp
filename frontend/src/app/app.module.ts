@@ -21,7 +21,7 @@ import { HomeComponent } from './Shared/home/home.component';
 import { HeaderComponent } from './Shared/header/header.component';
 import { FooterComponent } from './Shared/footer/footer.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -48,6 +48,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatIconModule,
     MatCardModule,
     MatToolbarModule,
+    MatSlideToggleModule,
   ],
   providers: [
     provideAnimationsAsync()
