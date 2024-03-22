@@ -3,8 +3,11 @@ POST http://localhost:3000/auth/signup
 Content-Type:  application/json
 
 {
-  "name":"husbanraina",
-  "email": "husban121@example.com",
+  "firstName":"husban",
+  "lastName":"raina",
+  "gender":"male",
+  "phoneNumber":8082780721,
+  "email": "husbanraina1@example.com",
   "password":"123456"
 }
 
@@ -14,7 +17,7 @@ POST  http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "email": "test@example.com",
+  "email": "husbanraina1@example.com",
   "password": "123456"
 }
 
@@ -22,26 +25,30 @@ Content-Type: application/json
 POST http://localhost:3000/auth/signout
 
 ### add task 
-POST http://localhost:3000/task/addtask/65f7cbfa611b73cb9311d07c
+POST http://localhost:3000/task/addtask/65fd35daaf93b7a348a74f52
 Content-Type : application/json
 
 {
-   "content": "edit task."
+   "taskName": "add task 2.",
+   "startTime":"3",
+   "endTime":"4"
 }
 
 ### get all tasks for a specific user
-GET http://localhost:3000/task/gettasks/65f7cbfa611b73cb9311d07c
+GET http://localhost:3000/task/gettasks/65fd35daaf93b7a348a74f52
 
 
 ### Delete a task 
-DELETE http://localhost:3000/task/deletetask/65f7cc14611b73cb9311d083
+DELETE http://localhost:3000/task/deletetask/65fd3603af93b7a348a74f59
 
 ###update a task
-PATCH http://localhost:3000/task/updatetask/65f7cc1c611b73cb9311d087
+PATCH http://localhost:3000/task/updatetask/65fd360aaf93b7a348a74f5d
 Content-Type: application/json
 
 {
-  "content": "task edited"
+  "taskName": "task edited",
+  "startTime":"4",
+  "endTime":"8"
 }
 
 

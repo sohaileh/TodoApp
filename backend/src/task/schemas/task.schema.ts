@@ -10,8 +10,13 @@ import { User } from 'src/auth/schemas/user.schema';
 })
 export class Task {
   @Prop()
-  content: string;
+  taskName: string;
 
+  @Prop()
+  startTime: string;
+
+  @Prop()
+  endTime: string;
   @Prop({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'

@@ -8,13 +8,22 @@ import { HydratedDocument } from 'mongoose';
 })
 export class User {
   @Prop()
-  name: string
+  firstName: string
+
+  @Prop()
+  lastName: string
 
   @Prop({ unique: [true, 'duplicate email entered'] })
   email: string
 
   @Prop()
   password: string
+
+  @Prop()
+  phoneNumber: number
+
+  @Prop()
+  gender: string;
 
 }
 

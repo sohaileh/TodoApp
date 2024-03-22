@@ -1,4 +1,4 @@
-import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
+import { ConflictException, Injectable, UnauthorizedException, BadRequestException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { User } from './schemas/user.schema';
 import { Model } from 'mongoose';
@@ -14,12 +14,15 @@ export class AuthService {
   ) { }
 
 
-  async signUp(signUpDto: SignUpDto) {
-    const { name, email, password } = signUpDto;
+  async signUp(data: SignUpDto) {
+    const { firstName, email, password, lastName, gender, phoneNumber } = data;
     const hashedPassword = await bcrypt.hash(password, 10)
     try {
       const user = await this.UserModel.create({
-        name,
+        firstName,
+        lastName,
+        phoneNumber,
+        gender,
         email,
         password: hashedPassword
       })
@@ -30,7 +33,7 @@ export class AuthService {
         throw new ConflictException('Email is already in use');
       }
       // If it's not a duplicate key error, rethrow the original error
-      throw error;
+      throw new BadRequestException('something went wrong!');
     }
 
 
@@ -46,7 +49,7 @@ export class AuthService {
     if (!isPasswordMatched) {
       throw new UnauthorizedException('invalid credentials')
     }
-    return { name: user.name, _id: user._id }
+    return { name: user.firstName, _id: user._id }
   }
 
   //find user by id

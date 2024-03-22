@@ -10,17 +10,17 @@ export class AuthController {
   }
 
   @Post('/signup')
-  async signUp(@Body() signUpDto: SignUpDto, @Session() session: any) {
+  async signUp(@Body() data: SignUpDto, @Session() session: any) {
 
-    const user = await this.authService.signUp(signUpDto)
+    const user = await this.authService.signUp(data)
     session.userId = user;
 
     return user;
   }
 
   @Post('/login')
-  async login(@Body() loginDto: LoginDto, @Session() session: any) {
-    const user = await this.authService.login(loginDto)
+  async login(@Body() data: LoginDto, @Session() session: any) {
+    const user = await this.authService.login(data)
     session.userId = user._id
     return user
 
