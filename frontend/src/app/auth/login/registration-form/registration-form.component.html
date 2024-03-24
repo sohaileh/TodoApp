@@ -1,10 +1,15 @@
 <div class="common-container reg-form-parent flex flex-justify-content-center flex-align-items-center">
-  <form class="wrapper reg-form grid grid-2-col grid-1em-gap" [formGroup]="userRegDetails" (ngSubmit)="onFormSubmit()">
+  <div class="icon-container">
+    <mat-icon  fontIcon="home" color="primary" class="home-icon" [routerLink]="'/home'"></mat-icon>
+  </div>
+  
+  <form class="wrapper reg-form grid " [formGroup]="userRegDetails" (ngSubmit)="onFormSubmit()">
     <h2 class="grid-complete-columns reg-heading">Register</h2>
-    <h2 class="grid-complete-columns reg-heading">Register</h2>
-    <mat-form-field floatLabel="auto" appearance="fill" color="accent">
-      <mat-label>Name</mat-label>
-      <input type="text" matInput placeholder="Name" formControlName="name">
+    <mat-form-field floatLabel="auto" color="accent" appearance="outline">
+
+      <!--Firstname-->
+      <mat-label>Firstname</mat-label>
+      <input type="text" matInput placeholder="Firstname" formControlName="name">
       <mat-hint align="end">Min 3 characters</mat-hint>
       <small
         *ngIf="userRegDetails.get('name').touched && userRegDetails.get('name').invalid && userRegDetails.get('name').errors?.['required']">*Name
@@ -18,7 +23,59 @@
 
       <mat-icon matSuffix color="primary">person</mat-icon>
     </mat-form-field>
-    <mat-form-field color="accent">
+
+    <!--Lastname-->
+    <mat-form-field floatLabel="auto" appearance="outline" color="accent">
+      <mat-label>Lastname</mat-label>
+      <input type="text" matInput placeholder="Lastname" formControlName="name">
+      <mat-hint align="end">Min 3 characters</mat-hint>
+      <small
+        *ngIf="userRegDetails.get('name').touched && userRegDetails.get('name').invalid && userRegDetails.get('name').errors?.['required']">*Name
+        is a
+        required field
+      </small>
+
+      <small *ngIf="userRegDetails.get('name').errors?.['minlength']">*Name
+        must be atleast of 3 characters
+      </small>
+
+      <mat-icon matSuffix color="primary">person</mat-icon>
+    </mat-form-field>
+
+    <!--Gender-->
+    <label id="example-radio-group-label" class="">Gender</label>
+    <mat-radio-group aria-label="Select an option">
+      <mat-radio-button value="1">Male</mat-radio-button>
+      <mat-radio-button value="2">Female</mat-radio-button>
+      <mat-radio-button value="2">Other</mat-radio-button>
+    </mat-radio-group>
+
+
+    <!--Phone no-->
+    <mat-form-field appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input matInput type="tel" placeholder="Enter your phone number">
+      <mat-icon matSuffix color="primary">phone</mat-icon>
+    </mat-form-field>
+  
+
+    <!--Email-->
+
+    <mat-form-field color="accent" class="grid-complete-columns" appearance="outline">
+      <mat-label>Email</mat-label>
+
+      <input type="email" matInput placeholder="Email" formControlName="email">
+
+      <small *ngIf="userRegDetails.get('email').touched && userRegDetails.get('email').errors?.['required']">*Email is a
+        required field</small>
+
+      <small *ngIf="userRegDetails.get('email').errors?.['email']">*Input must be typeof "Email"</small>
+
+      <mat-icon matSuffix color="primary">mail</mat-icon>
+    </mat-form-field>
+
+    <!--Password-->
+    <mat-form-field color="accent" appearance="outline">
       <mat-label>Password</mat-label>
       <input type="password" matInput placeholder="Password" formControlName="password">
       <small
@@ -32,17 +89,12 @@
 
       <mat-icon matSuffix color="primary">lock</mat-icon>
     </mat-form-field>
-    <mat-form-field color="accent" class="grid-complete-columns">
-      <mat-label>Email</mat-label>
 
-      <input type="email" matInput placeholder="Email" formControlName="email">
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Confirm Password</mat-label>
+      <input type="password" matInput placeholder="Password" formControlName="password">
 
-      <small *ngIf="userRegDetails.get('email').touched && userRegDetails.get('email').errors?.['required']">*Email is a
-        required field</small>
-
-      <small *ngIf="userRegDetails.get('email').errors?.['email']">*Input must be typeof "Email"</small>
-
-      <mat-icon matSuffix color="primary">mail</mat-icon>
+      <mat-icon matSuffix color="primary">lock</mat-icon>
     </mat-form-field>
     <button mat-raised-button class="grid-complete-columns grid-justify-self-center" color="primary">Submit</button>
     <div class="text-below-container">Already have an account

@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UsersServiceService } from '../../../Services/users-service.service';
-
+import {MatRadioModule} from '@angular/material/radio';
 
 @Component({
   selector: 'registration-form',

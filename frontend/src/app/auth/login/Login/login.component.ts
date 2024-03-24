@@ -21,6 +21,10 @@ export class LoginComponent implements OnInit {
   ) {
     this.snakeBar = snakeBarRef;
   }
+
+ 
+
+  
   ngOnInit(): void {
     this.LoginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
@@ -34,10 +38,18 @@ export class LoginComponent implements OnInit {
         this.LoginForm.reset();
         this.routes.navigate(['addtask'])
       })
-      return this.snakeBar.open("Login Successfully", "Okay");
+      return this.openSnackBar("Login Successfully", "Okay");
     }
     else {
-      return this.snakeBar.open("Please fill all the input fields with required details", "Dismiss")
+      return this.openSnackBar("Please fill all the input fields with required details", "Dismiss")
     }
   }
+
+  openSnackBar(message: string, action: string) {
+    this.snakeBar.open(message,action,{
+     duration:2000,
+    
+   })
+  }
 }
+

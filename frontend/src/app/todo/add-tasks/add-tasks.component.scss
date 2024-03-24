@@ -1,3 +1,46 @@
 .taskInputField{
   width: 87%;
 }
+
+
+.mat-form-field.mat-touched .mat-form-field.mat-invalid {
+  border: red 1px solid ;
+}
+
+.button-container{
+  display: flex;
+  gap: 1rem;
+}
+
+.container{
+  align-items: center;
+  display: flex;
+}
+
+.header-container{
+  margin:  2rem;
+}
+
+#custom-button{
+  background-color: white;
+  font-weight: bold;
+}
+
+
+#profile{
+  background-color: white;
+  border-radius: 50%;
+}
+
+mat-toolbar{
+  justify-content: space-between;
+  background: rgba(75, 0, 130, 0.9),
+}
+
+.mat-list{
+  color: white;
+}
+
+.heading{
+  color: white;
+}

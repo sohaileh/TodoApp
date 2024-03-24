@@ -11,10 +11,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   box-sizing: border-box;
 }
 .wrapper{
-  padding: 1em;
+  padding: 2em;
 }
 .common-container{
   padding: 1em;
+  // line-height: 0.5rem;
 }
 small{
   font-weight: bold;
@@ -92,3 +93,20 @@ small{
 .home-container h1{
     font-style: italic;
 }
+
+//for home icon
+
+.icon-container {
+  position:fixed; /* Ensure the container is positioned */
+  width: 100%; /* Set the width to fill the container */
+  height: 100%; /* Set the height to fill the container */
+}
+
+.home-icon {
+  position: absolute; /* Position the icon absolutely within its container */
+  top: 0; /* Position the icon at the top */
+  left: 0; /* Position the icon at the left */
+  margin: 1rem;
+}
+
+

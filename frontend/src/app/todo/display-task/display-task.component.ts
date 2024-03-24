@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UsersServiceService } from '../../Services/users-service.service';
+import { FormServiceService } from '../../Services/form-service.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-display-task',
@@ -7,34 +9,44 @@ import { UsersServiceService } from '../../Services/users-service.service';
   styleUrl: './display-task.component.scss'
 })
 export class DisplayTaskComponent {
-  constructor(private userService: UsersServiceService) { }
+  constructor(private userService: UsersServiceService,
+    private formService: FormServiceService) { }
   userTaskDb: any[];
+  // todoFormCopy:FormGroup = this.formService.todoForm;
   // taskId:number;
-
-  ngOnInit(): void {
+   ngOnInit(): void {
+    console.log('Helo from display task');
+    // console.log(todo)
     this.userService.getAllTasks().subscribe((res:any[]) => {
       this.userTaskDb = res;
-      console.log(this.userTaskDb)
+      // console.log(this.userTaskDb)
     })
     this.userService.addTaskClicked.subscribe(data => {
       this.userTaskDb = data;
     });
+    this.userService.editTaskForm.subscribe(data => {
+
+      console.log(data);
+    })
+  
   }
 
   deleteTask(id: number) {
 
     const con = confirm('Do you want to delete this task permenantly ?');
     if (con) {
-      const Id = this.userTaskDb[id];
-      this.userService.deleteTask(Id._id).subscribe(() => {
-        this.userTaskDb.splice(Id,1)
+      this.userService.deleteTask(this.userTaskDb[id]._id).subscribe(() => {
+        this.userTaskDb.splice(id,1)
       });
     }
   }
 
   editTask(id:number){
     this.userService.onEditTaskClicked(false);
-    // const Id = this.userTaskDb[id];
-    // this.userService.editTask(Id._id);
+    const specificTask = this.userTaskDb[id];
+    console.log(specificTask);
+    // console.log(this.todoFormCopy);
+    // this.todoFormCopy.setValue(specificTask);
+    this.userService.editTask(specificTask._id);
   }
 }

@@ -24,11 +24,21 @@ export class UsersServiceService {
       this.addTaskClicked.emit(data);
     }
 
-  //oneEditTask
+  //onEditTask (for state)
    editTaskClicked : EventEmitter<boolean> = new EventEmitter<boolean>();
    onEditTaskClicked(data: boolean) {
     this.editTaskClicked.emit(data);
   }
+
+  
+
+    //Sending EditForm
+    editTaskForm : EventEmitter<any> = new EventEmitter<any>();
+    onEditTaskForm(data:any) {
+      console.log('helo from service')
+     this.editTaskForm.emit(data);
+     console.log(data);
+   }
 
 
   //register
@@ -41,6 +51,7 @@ export class UsersServiceService {
     return this.http.post(`http://localhost:3000/task/addtask/${this.Id}`, data)
   }
 
+  //login user
   logIn(data: any) {
     const loginUrl = this.http.post<loginres>('http://localhost:3000/auth/login', data)
     loginUrl.subscribe(res => {
@@ -48,6 +59,8 @@ export class UsersServiceService {
     })
     return loginUrl
   }
+
+
   //get all tasks
   getAllTasks() {
     return this.http.get(`http://localhost:3000/task/gettasks/${this.Id}`)

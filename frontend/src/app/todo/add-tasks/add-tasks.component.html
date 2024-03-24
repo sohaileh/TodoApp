@@ -1,9 +1,21 @@
 <div class="outer">
+  <mat-toolbar class="mat-toolbar">
+    <div class="container">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon id="profile" color="primary">perm_identity</mat-icon>
+      </button>
+      <span class="heading">user name</span>
+    </div>
+    <div class="button-container">
+      <button mat-button color="primary" id="custom-button" [routerLink]="'/login'">Logout</button>
+    </div>
+    
+  </mat-toolbar>
   <form [formGroup]="todoForm" (ngSubmit)="onAddTask()" class="todo-container">
     <mat-form-field class="taskInputField common" appearance="outline">
-      <input type="text" matNativeControl placeholder="Add Task" formControlName="content">
+      <input type="text"  mat-form-field.mat-touched mat-form-field.mat-invalid  matNativeControl [placeholder]="showDisplayTasks?'Add Task':'Update Task'"formControlName="content" >
     </mat-form-field>
-    <button mat-flat-button color="primary" class="btn common"  >{{showDisplayTasks?'Add Task':'Update Task'}}</button>
+    <button mat-flat-button  color="primary" class="btn common"  >{{showDisplayTasks?'Add Task':'Update Task'}}</button>
   </form>
 </div>
 <app-display-task *ngIf="showDisplayTasks"></app-display-task>

@@ -4,10 +4,7 @@ mat-toolbar{
     background: rgba(75, 0, 130, 0.9),
     
 }
-.container{
-    align-items: center;
-    display: flex;
-}
+
 
 #custom-button{
     background-color: white;
@@ -23,12 +20,22 @@ mat-toolbar{
     color: white;
 }
 
-.button-container{
-    display: flex;
-    gap: 1rem;
-}
+
 
 .mat-list{
     color: white;
 }
 
+.button-container{
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .container{
+    align-items: center;
+    display: flex;
+  }
+
+  .mat-toolbar{
+    width: 100%;
+  }

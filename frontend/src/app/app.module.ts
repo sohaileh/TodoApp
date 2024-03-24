@@ -22,7 +22,7 @@ import { HeaderComponent } from './Shared/header/header.component';
 import { FooterComponent } from './Shared/footer/footer.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
+import {MatRadioModule } from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +49,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatCardModule,
     MatToolbarModule,
     MatSlideToggleModule,
+    MatRadioModule,
   ],
   providers: [
     provideAnimationsAsync()

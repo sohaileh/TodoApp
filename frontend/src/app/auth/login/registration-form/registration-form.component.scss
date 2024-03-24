@@ -1,16 +1,24 @@
 .reg-form-parent{
   background:indigo;
   height: 100vh;
+
 }
 .reg-form{
   border-radius: 10px;
   background-color: #fff;
   padding: 2em;
+  width:30%;
 }
 .reg-heading{
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
+  padding: 0.7em;
 }
 mat-hint{
   font-weight: bold;
+}
+
+
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+  margin-left: 14px;
 }
